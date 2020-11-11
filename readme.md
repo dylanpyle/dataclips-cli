@@ -7,6 +7,8 @@ Postgres, but are limited by their web-only interface. With `dataclips-cli` you
 can easily manage these queries as flat files instead, enabling dataclips
 updates as part of a CI workflow, tracking revision history, etc.
 
+Published on deno.land/x as [dataclips_cli](https://deno.land/x/dataclips_cli)
+
 ## Usage
 
 Requires [deno](https://deno.land/) and the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli);
@@ -29,7 +31,7 @@ select count(*) from pg_user;
 Then run the tool any time you want to make updates: 
 
 ```
-$ deno run --allow-read --allow-env --allow-net src/index.ts test.sql
+$ deno run --allow-read --allow-env --allow-net https://deno.land/x/dataclips_cli@v1.0.0/index.ts example.sql
 ```
 
 ## Disclaimers
