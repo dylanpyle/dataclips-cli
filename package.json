@@ -1,0 +1,15 @@
+{
+  "name": "dataclips-cli",
+  "version": "1.0.0",
+  "description": "A tool for managing [Heroku Dataclips](https://devcenter.heroku.com/articles/dataclips) programmatically.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylanpyle/dataclips-cli.git"
+  },
+  "author": "Dylan Pyle <me@dylanpyle.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dylanpyle/dataclips-cli/issues"
+  },
+  "homepage": "https://github.com/dylanpyle/dataclips-cli#readme"
+}
