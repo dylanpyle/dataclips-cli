@@ -16,11 +16,14 @@ export default async function parseFile(fileName: string): Promise<ParsedFile> {
   const titleMatch = content.match(/\-\- title: ([^\r\n]+)[\r\n]/);
 
   if (
-    !clipSlugMatch || !clipSlugMatch[1] || !titleMatch || !titleMatch[1]) {
-    throw new Error(`File ${fileName} is missing a Dataclip ID or title. Please add a block like this at the beginning of the file:
+    !clipSlugMatch || !clipSlugMatch[1] || !titleMatch || !titleMatch[1]
+  ) {
+    throw new Error(
+      `File ${fileName} is missing a Dataclip ID or title. Please add a block like this at the beginning of the file:
 
 -- clip_slug: vgntjcbwfakfsxhdmrmzmliwftts
--- title: A Test Dataclip`);
+-- title: A Test Dataclip`,
+    );
   }
 
   const clipSlug = clipSlugMatch[1];
@@ -29,6 +32,6 @@ export default async function parseFile(fileName: string): Promise<ParsedFile> {
   return {
     clipSlug,
     title,
-    query: content
+    query: content,
   };
 }

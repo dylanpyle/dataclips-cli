@@ -1,6 +1,6 @@
 import { fetchClipDetailsQuery, updateClipQuery } from "./queries.ts";
 
-const apiBase = 'https://data-api.heroku.com/graphql';
+const apiBase = "https://data-api.heroku.com/graphql";
 
 interface Options {
   clipSlug: string;
@@ -9,20 +9,24 @@ interface Options {
   authToken: string;
 }
 
-async function makeRequest<ResponseType>(query: string, variables: Record<any, any>, authToken: string): Promise<ResponseType> {
+async function makeRequest<ResponseType>(
+  query: string,
+  variables: Record<any, any>,
+  authToken: string,
+): Promise<ResponseType> {
   const payload = {
     query,
-    variables
+    variables,
   };
 
   const result = await fetch(apiBase, {
     headers: {
-      'Content-Type': 'application/json;charset=UTF-8',
-      Accept: 'application/json, text/plain, */*',
+      "Content-Type": "application/json;charset=UTF-8",
+      Accept: "application/json, text/plain, */*",
       Authorization: `Bearer ${authToken}`,
     },
-    method: 'POST',
-    body: JSON.stringify(payload)
+    method: "POST",
+    body: JSON.stringify(payload),
   });
 
   if (result.status >= 400) {
@@ -44,18 +48,18 @@ async function makeRequest<ResponseType>(query: string, variables: Record<any, a
 interface ClipDetailsResponse {
   data: {
     clip: {
-      id: string
-    }
-  }
+      id: string;
+    };
+  };
 }
 
 export default async function updateDataclip(options: Options): Promise<void> {
   const details = await makeRequest<ClipDetailsResponse>(
     fetchClipDetailsQuery,
     {
-      slug: options.clipSlug
+      slug: options.clipSlug,
     },
-    options.authToken
+    options.authToken,
   );
 
   await makeRequest<unknown>(
@@ -63,8 +67,8 @@ export default async function updateDataclip(options: Options): Promise<void> {
     {
       clipId: details.data.clip.id,
       title: options.title,
-      sql: options.query
+      sql: options.query,
     },
-    options.authToken
+    options.authToken,
   );
 }

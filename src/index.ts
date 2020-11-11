@@ -22,7 +22,7 @@ async function run() {
     await updateDataclip({ clipSlug, title, query, authToken: herokuToken });
   }
 
-  console.log('OK');
+  console.log("OK");
 }
 
 try {
@@ -31,4 +31,3 @@ try {
   console.error(`ERROR: ${err.message}`);
   Deno.exit(1);
 }
-
