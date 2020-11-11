@@ -15,9 +15,9 @@ Requires [deno](https://deno.land/) and the [Heroku CLI](https://devcenter.herok
 
 First, create a dataclip via [the web
 interface](https://data.heroku.com/dataclips). It will have a URL similar to
-`https://data.heroku.com/dataclips/vgntjcbwfakfsxhdmrmzmliwftts`. 
+`https://data.heroku.com/dataclips/vgntjcbwfakfsxhdmrmzmliwftts`.
 
-`vgntjcbwfakfsxhdmrmzmliwftts` is the "slug" of the dataclip. 
+`vgntjcbwfakfsxhdmrmzmliwftts` is the "slug" of the dataclip.
 
 Now create a file for your query with the following format:
 
@@ -28,10 +28,19 @@ Now create a file for your query with the following format:
 select count(*) from pg_user;
 ```
 
-Then run the tool any time you want to make updates: 
+Then run the tool any time you want to make updates:
 
 ```
 $ deno run --allow-read --allow-env --allow-net https://deno.land/x/dataclips_cli@v1.0.0/index.ts example.sql
+```
+
+## Authentication
+
+dataclips-cli reads your Heroku API key from `~/.netrc` (where the Heroku CLI
+writes it), or uses the environment variable `HEROKU_API_KEY` if available, e.g:
+
+```
+$ HEROKU_API_KEY=mykey deno run ... etc
 ```
 
 ## Disclaimers

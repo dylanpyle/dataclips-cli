@@ -1,4 +1,10 @@
-export default async function findHerokuToken() {
+export default async function findHerokuToken(): Promise<string> {
+  const envToken = Deno.env.get("HEROKU_API_KEY");
+
+  if (envToken) {
+    return envToken;
+  }
+
   let netrc: string;
   try {
     netrc = await Deno.readTextFile(Deno.env.get("HOME") + "/.netrc");
