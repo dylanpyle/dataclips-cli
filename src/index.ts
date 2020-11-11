@@ -20,9 +20,8 @@ async function run() {
     const { clipSlug, title, query } = await parseFile(file);
     write(`Updating dataclip ${clipSlug}... `);
     await updateDataclip({ clipSlug, title, query, authToken: herokuToken });
+    console.log("OK");
   }
-
-  console.log("OK");
 }
 
 try {
