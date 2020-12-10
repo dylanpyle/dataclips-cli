@@ -46,6 +46,15 @@ writes it), or uses the environment variable `HEROKU_API_KEY` if available, e.g:
 $ HEROKU_API_KEY=mykey deno run ... etc
 ```
 
+## Development / Release Process
+
+Uses [version](https://github.com/dylanpyle/version) for version management
+```
+$ deno run -A https://deno.land/x/version/index.ts patch
+$ git push --follow-tags
+```
+— will be automatically deployed to https://deno.land/x/dataclips-cli
+
 ## Disclaimers
 
 This tool was created by emulating Heroku's browser APIs. It's not officially
