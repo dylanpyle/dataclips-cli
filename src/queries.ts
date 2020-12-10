@@ -16,12 +16,7 @@ query FetchClipDetails($slug: ID!) {
     email
   }
   edited_at
-  legacy_access_logs {
-    accessed_at
-    access_mode
-  }
   slug
-  disable_access_token
   title
   user_shares {
     id
@@ -48,7 +43,6 @@ query FetchClipDetails($slug: ID!) {
     }
   }
   team_id
-  access_token
   public_slug
   public_slug_by
   detached
@@ -99,12 +93,7 @@ mutation UpdateDataclip($clipId: ID!, $attachmentId: ID, $title: String, $sql: S
     email
   }
   edited_at
-  legacy_access_logs {
-    accessed_at
-    access_mode
-  }
   slug
-  disable_access_token
   title
   user_shares {
     id
@@ -131,7 +120,6 @@ mutation UpdateDataclip($clipId: ID!, $attachmentId: ID, $title: String, $sql: S
     }
   }
   team_id
-  access_token
   public_slug
   public_slug_by
   detached
@@ -167,5 +155,4 @@ mutation UpdateDataclip($clipId: ID!, $attachmentId: ID, $title: String, $sql: S
   }
   editable
 }
-
 `;

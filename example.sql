@@ -1,4 +1,4 @@
--- clip_slug: vgntjcbwfakfsxhdmrmzmliwftts
--- title: A Test Dataclip
+-- clip_slug: eygzotedknbqoszmxtbjjoqwtbhh
+-- title: dataclips-cli test dataclip
 
 select count(*) from pg_user;
