@@ -46,14 +46,14 @@ writes it), or uses the environment variable `HEROKU_API_KEY` if available, e.g:
 $ HEROKU_API_KEY=mykey deno run ... etc
 ```
 
-## Development / Release Process
+## CLI Development / Release Process
 
 Uses [version](https://github.com/dylanpyle/version) for version management
 ```
 $ deno run -A https://deno.land/x/version/index.ts patch
 $ git push --follow-tags
 ```
-— will be automatically deployed to https://deno.land/x/dataclips-cli
+— will be automatically deployed to https://deno.land/x/dataclips_cli
 
 ## Disclaimers
 
